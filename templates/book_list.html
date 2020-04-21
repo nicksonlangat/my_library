@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <p class="lead alert alert-success" >The library has the following books:</p>
+  {% if book_list %}
+<ul class="list-group">
+	{% for book in book_list %}
+  <li class="list-group-item"><a href="{{ book.get_absolute_url }}">{{ book.title }}, </a> by ({{book.author}}). </li>
+  {% endfor %}
+</ul>
+  {% else %}
+    <p class="alert alert-warning" >There are no books in the library.</p>
+  {% endif %}       
+{% endblock %}
+
+
